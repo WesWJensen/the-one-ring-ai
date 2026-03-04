@@ -95,21 +95,40 @@ def speak_edge(text: str, output_path: Path | None = None) -> Path:
     """
     Synthesize speech using edge-tts (Microsoft Edge TTS, free, cross-platform).
     Requires: pip install edge-tts
-    Returns the path to the generated MP3 file (WAV-compatible for Chainlit).
+    Returns the path to the generated MP3 file (playable by Chainlit).
+
+    Runs in a dedicated thread with its own event loop so it works both
+    standalone and inside Chainlit's already-running async event loop.
     """
     import asyncio
+    import threading
     import edge_tts
 
     if output_path is None:
         output_path = OUTPUT_DIR / "response.mp3"
 
     clean = _clean_for_tts(text)
+    error: list[Exception] = []
 
-    async def _synthesize():
-        communicate = edge_tts.Communicate(clean, EDGE_VOICE)
-        await communicate.save(str(output_path))
+    def _run_in_thread():
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        try:
+            async def _synthesize():
+                communicate = edge_tts.Communicate(clean, EDGE_VOICE)
+                await communicate.save(str(output_path))
+            loop.run_until_complete(_synthesize())
+        except Exception as exc:
+            error.append(exc)
+        finally:
+            loop.close()
 
-    asyncio.run(_synthesize())
+    t = threading.Thread(target=_run_in_thread, daemon=True)
+    t.start()
+    t.join()
+
+    if error:
+        raise error[0]
     return output_path
 
 
