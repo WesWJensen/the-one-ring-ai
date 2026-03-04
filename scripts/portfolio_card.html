@@ -1,0 +1,64 @@
+<!--
+  Portfolio card for Pedor — Lambengolmor Lore Oracle
+  Drop this snippet into your GitHub Pages site.
+  Update href values with your actual GitHub username.
+-->
+
+<article class="project-card" style="
+  border: 1px solid #d4af6a;
+  border-radius: 10px;
+  padding: 1.5rem 2rem;
+  max-width: 560px;
+  font-family: Georgia, 'Times New Roman', serif;
+  background: #1a1610;
+  color: #e8dfc8;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+">
+  <header>
+    <p style="margin:0 0 .25rem; font-size:.75rem; letter-spacing:.12em; color:#d4af6a; text-transform:uppercase;">
+      AI · NLP · Voice
+    </p>
+    <h3 style="margin:0 0 .5rem; font-size:1.35rem; color:#f0e6c8;">
+      Pedor — Lambengolmor Lore Oracle
+    </h3>
+    <p style="margin:0; font-style:italic; font-size:.9rem; color:#b0a080; line-height:1.5;">
+      "The names of things are not merely labels — they are the shape of thought itself, pressed into sound."
+    </p>
+  </header>
+
+  <p style="margin:1rem 0 .75rem; font-size:.95rem; line-height:1.6;">
+    A fully local, voice-enabled AI lorekeeper built on Tolkien's world.
+    Speak a question; Pedor — an elvish scholar of the Lambengolmor order —
+    answers in character, grounded in a RAG pipeline of 1,238 lore chunks
+    from 24 Tolkien Gateway articles. No cloud API keys required.
+  </p>
+
+  <ul style="margin:.5rem 0 1rem 1.2rem; padding:0; font-size:.9rem; line-height:1.8; color:#c8bfa0;">
+    <li>Voice I/O — Whisper STT · macOS Daniel TTS · auto-stop VAD · auto-play</li>
+    <li>Local RAG — llama3.1 + nomic-embed-text via Ollama · LanceDB vector store</li>
+    <li>MCP server — callable from Claude Desktop as a tool</li>
+    <li>Chainlit UI · Python 3.12 · zero external API dependencies</li>
+  </ul>
+
+  <footer style="display:flex; gap:.75rem; flex-wrap:wrap;">
+    <a href="https://github.com/YOUR_USERNAME/the_one_ring_ai"
+       target="_blank" rel="noopener"
+       style="
+         display:inline-block; padding:.45rem 1.1rem;
+         background:#d4af6a; color:#1a1610;
+         border-radius:5px; font-size:.85rem;
+         font-family:sans-serif; font-weight:600;
+         text-decoration:none; letter-spacing:.04em;
+       ">
+      View on GitHub
+    </a>
+    <span style="
+      display:inline-flex; align-items:center; gap:.35rem;
+      padding:.45rem 1.1rem; border:1px solid #5a5040;
+      border-radius:5px; font-size:.8rem;
+      font-family:monospace; color:#8a7a60;
+    ">
+      Python · Chainlit · Ollama · LanceDB
+    </span>
+  </footer>
+</article>

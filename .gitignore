@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+
+# Env
+.env
+
+# Data (large files — commit only what's needed)
+data/raw/
+data/cleaned/
+# data/chunks/all_chunks.json is committed so HF Spaces can rebuild the vector store
+
+# ChromaDB (legacy)
+chroma_db/
+
+# LanceDB (vector store — large binary files)
+lance_db/
+
+# Voice models and generated audio
+voice/models/
+voice/output/
+
+# Chainlit runtime cache
+.chainlit/cache/
+.files/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
