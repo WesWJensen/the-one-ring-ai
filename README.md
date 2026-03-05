@@ -51,7 +51,7 @@ ollama pull llama3.1
 ollama pull nomic-embed-text
 
 # 2. Clone and install
-git clone https://github.com/YOUR_USERNAME/the_one_ring_ai.git
+git clone https://github.com/WesWJensen/the_one_ring_ai.git
 cd the_one_ring_ai
 python3.12 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
